@@ -1,0 +1,32 @@
+---
+
+# ------------------------------------------------------
+# Generic
+# ------------------------------------------------------
+
+- name: Asserts
+  ansible.builtin.assert:
+    that:
+      - awx_export_path is defined
+      - awx_config_path is defined
+
+- name: Create config path
+  ansible.builtin.file:
+    path: "{{ awx_config_path }}"
+    state: directory
+    mode: "0700"
+
+
+# ------------------------------------------------------
+# Read exported data
+# ------------------------------------------------------
+
+- name: Process each AWX resource
+  ansible.builtin.include_tasks:
+    file: resource.yml
+    apply:
+      delegate_to: localhost
+      connection: local
+  loop: "{{ awx_convert_resources }}"
+  loop_control:
+    loop_var: awx_resource

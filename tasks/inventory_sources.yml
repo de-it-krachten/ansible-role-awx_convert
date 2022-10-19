@@ -1,0 +1,50 @@
+---
+
+- name: Convert inventory_sources
+  ansible.builtin.set_fact:
+    __awx_inventory_sources1: >
+      {{ __awx_inventory_sources1 +
+        [{
+          'name': item.name,
+          'credential': item.credential,
+          'custom_virtualenv': item.custom_virtualenv,
+          'description': item.description,
+          'host_filter': item.host_filter | default(''),
+          'kind': item.kind | default(''),
+          'organization': (item.inventory.organization.name if item.inventory.organization.name is defined else None),
+          'inventory': (item.inventory.name if item.inventory.name is defined else None),
+          'overwrite': item.overwrite,
+          'overwrite_vars': item.overwrite_vars,
+          'source': item.source,
+          'source_path': item.source_path,
+          'source_project': item.source_project,
+          'source_script': item.source_script,
+          'source_vars': item.source_vars,
+          'timeout': item.timeout,
+          'update_cache_timeout': item.update_cache_timeout,
+          'update_on_launch': item.update_on_launch,
+          'update_on_project_update': item.update_on_project_update,
+          'variables': (item.variables | default('')),
+          'verbosity': item.verbosity
+        }]
+      }}
+  loop: "{{ __awx_inventory_sources }}"
+  loop_control:
+    label:
+      - "{{ item.name }}"
+
+- name: Write inventory_sources/source_vars to file (JSON)
+  ansible.builtin.template:
+    src: extract2json.j2
+    dest: "{{ awx_config_path }}/inventory_sources/source_vars/{{ varss.name }}.json"
+  vars:
+    extra_vars: "{{ varss.source_vars }}"
+  loop: "{{ __awx_inventory_sources }}"
+  loop_control:
+    loop_var: varss
+    label:
+      - "{{ varss.name }}"
+  when:
+    - varss.source_vars | length > 0
+    - varss.source_vars != "---"
+    - varss.source_vars != "{}"

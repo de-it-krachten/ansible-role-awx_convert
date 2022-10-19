@@ -1,0 +1,44 @@
+---
+
+- name: Convert workflow_job_templates
+  ansible.builtin.set_fact:
+    __awx_workflow_job_templates1: >
+      {{ __awx_workflow_job_templates1 +
+        [{
+          'name': item.name,
+          'description': item.description,
+          'organization': (item.organization.name if item.organization.name is defined else None),
+          'allow_simultaneous': item.allow_simultaneous,
+          'ask_limit_on_launch': item.ask_limit_on_launch,
+          'ask_scm_branch_on_launch': item.ask_scm_branch_on_launch,
+          'ask_variables_on_launch': item.ask_variables_on_launch,
+          'inventory': item.inventory,
+          'limit': item.limit,
+          'scm_branch': item.scm_branch,
+          'survey_enabled': item.survey_enabled,
+          'survey_spec': (item.related.survey_spec | default('')),
+          'webhook_credential': item.webhook_credential,
+          'webhook_service': item.webhook_service
+        }]
+      }}
+  loop: "{{ __awx_workflow_job_templates }}"
+  loop_control:
+    label:
+      - "{{ item.name }}"
+
+- name: Write workflow_job_templates/extra_vars to file (JSON)
+  ansible.builtin.template:
+    src: extract2json.j2
+    dest: "{{ awx_config_path }}/workflow_job_templates/extra_vars/{{ varss.name }}.json"
+    mode: "0640"
+  vars:
+    extra_vars: "{{ varss.extra_vars }}"
+  loop: "{{ __awx_workflow_job_templates }}"
+  loop_control:
+    loop_var: varss
+    label:
+      - "{{ varss.name }}"
+  when:
+    - varss.extra_vars | length > 0
+    - varss.extra_vars != "---"
+    - varss.extra_vars != "{}"

@@ -1,0 +1,20 @@
+---
+
+- name: Convert users
+  ansible.builtin.set_fact:
+    __awx_users1: >
+      {{ __awx_users1 +
+        [{
+          'username': item.username,
+          'email': item.email,
+          'first_name': item.first_name,
+          'last_name': item.last_name,
+          'is_superuser': item.is_superuser,
+          'is_system_auditor': item.is_system_auditor,
+          'roles': ((item.related.roles | json_query('[].name')) if item.related.roles is defined else None)
+        }]
+      }}
+  loop: "{{ __awx_users }}"
+  loop_control:
+    label:
+      - "{{ item.username }}"

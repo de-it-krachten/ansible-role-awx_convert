@@ -1,0 +1,13 @@
+---
+
+- name: Convert notification_templates
+  ansible.builtin.set_fact:
+    __awx_notification_templates1: >
+      {{ __awx_notification_templates1 +
+        [{
+        }]
+      }}
+  loop: "{{ __awx_notification_templates }}"
+  loop_control:
+    label:
+      - "{{ item.name }}"

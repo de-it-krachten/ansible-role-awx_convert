@@ -1,0 +1,16 @@
+---
+
+- name: Convert teams
+  ansible.builtin.set_fact:
+    __awx_teams1: >
+      {{ __awx_teams1 +
+        [{
+          'name': item.name,
+          'description': item.description,
+          'organization': (item.organization.name if item.organization.name is defined else None)
+        }]
+      }}
+  loop: "{{ __awx_teams }}"
+  loop_control:
+    label:
+      - "{{ item.name }}"

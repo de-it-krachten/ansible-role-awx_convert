@@ -1,0 +1,41 @@
+---
+
+awx_convert_resources:
+  - settings
+  - credential_types
+  - credentials
+  # - execution_environments
+  - inventory
+  - inventory_sources
+  - job_templates
+  - notification_templates
+  - organizations
+  - projects
+  - teams
+  - users
+  - workflow_job_templates
+  # - roles  ## Not yet implemented
+  - schedules
+  # - applications  ## Not yet implemented
+  # - system_job_templates  ## Not yet implemented
+  - groups
+  - hosts
+
+awx_convert_vars:
+  credential_types:
+    - injectors
+    - inputs
+  groups:
+    - variables
+  hosts:
+    - variables
+  inventory:
+    - variables
+  inventory_sources:
+    - source_vars
+  job_templates:
+    - extra_vars
+  schedules:
+    - extra_data
+  workflow_job_templates:
+    - extra_vars

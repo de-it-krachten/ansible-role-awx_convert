@@ -1,0 +1,34 @@
+---
+
+- name: Convert inventories
+  ansible.builtin.set_fact:
+    __awx_inventory1: >
+      {{ __awx_inventory1 +
+        [{
+          'name': item.name,
+          'description': item.description,
+          'organization': (item.organization.name if item.organization.name is defined else None),
+          'variables': item.variables
+        }]
+      }}
+  loop: "{{ __awx_inventory }}"
+  loop_control:
+    label:
+      - "{{ item.name }}"
+
+- name: Write inventory/variables to file (JSON)
+  ansible.builtin.template:
+    src: extract2json.j2
+    dest: "{{ awx_config_path }}/inventory/variables/{{ varss.name }}.json"
+    mode: "0640"
+  vars:
+    extra_vars: "{{ varss.variables }}"
+  loop: "{{ __awx_inventory }}"
+  loop_control:
+    loop_var: varss
+    label:
+      - "{{ varss.name }}"
+  when:
+    - varss.variables | length > 0
+    - varss.variables != "---"
+    - varss.variables != "{}"

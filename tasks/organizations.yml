@@ -1,0 +1,17 @@
+---
+
+- name: Convert organizations
+  ansible.builtin.set_fact:
+    __awx_organizations1: >
+      {{ __awx_organizations1 +
+        [{
+          'name': item.name,
+          'description': item.description,
+          'custom_virtualenv': (item.custom_virtualenv if item.custom_virtualenv is defined else None),
+          'galaxy_credentials': (item.related.galaxy_credentials | json_query('[].name'))
+        }]
+      }}
+  loop: "{{ __awx_organizations }}"
+  loop_control:
+    label:
+      - "{{ item.name }}"

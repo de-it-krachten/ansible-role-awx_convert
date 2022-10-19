@@ -1,0 +1,69 @@
+---
+
+- name: Convert job_templates
+  ansible.builtin.set_fact:
+    __awx_job_templates1: >
+      {{ __awx_job_templates1 +
+        [{
+          'name': item.name,
+          'description': item.description,
+          'organization': (item.natural_key.organization.name if item.natural_key.organization.name is defined else None),
+
+          'allow_simultaneous': item.allow_simultaneous,
+          'ask_credential_on_launch': item.ask_credential_on_launch,
+          'ask_diff_mode_on_launch': item.ask_diff_mode_on_launch,
+          'ask_inventory_on_launch': item.ask_inventory_on_launch,
+          'ask_job_type_on_launch': item.ask_job_type_on_launch,
+          'ask_limit_on_launch': item.ask_limit_on_launch,
+          'ask_scm_branch_on_launch': item.ask_scm_branch_on_launch,
+          'ask_skip_tags_on_launch': item.ask_skip_tags_on_launch,
+          'ask_tags_on_launch': item.ask_tags_on_launch,
+          'ask_variables_on_launch': item.ask_variables_on_launch,
+          'ask_verbosity_on_launch': item.ask_verbosity_on_launch,
+          'become_enabled': item.become_enabled,
+          'credentials': (item.related.credentials | json_query('[].name') if item.related.credentials is defined else None),
+          'custom_virtualenv': item.custom_virtualenv,
+          'description': item.description,
+          'diff_mode': item.diff_mode,
+          'force_handlers': item.force_handlers,
+          'forks': item.forks,
+          'host_config_key': item.host_config_key,
+          'inventory': (item.inventory.name if item.inventory.name is defined else None),
+          'job_slice_count': item.job_slice_count,
+          'job_tags': item.job_tags,
+          'job_type': item.job_type,
+          'limit': item.limit,
+          'name': item.name,
+          'playbook': item.playbook,
+          'project': (item.project.name if item.project.name is defined else None),
+          'scm_branch': item.scm_branch,
+          'skip_tags': item.skip_tags,
+          'start_at_task': item.start_at_task,
+          'survey_enabled': item.survey_enabled,
+          'survey_spec': (item.related.survey_spec | default('')),
+          'timeout': item.timeout,
+          'use_fact_cache': item.use_fact_cache,
+          'verbosity': item.verbosity
+        }]
+      }}
+  loop: "{{ __awx_job_templates }}"
+  loop_control:
+    label:
+      - "{{ item.name }}"
+
+- name: Write job_templates/extra_vars to file (JSON)
+  ansible.builtin.template:
+    src: extract2json.j2
+    dest: "{{ awx_config_path }}/job_templates/extra_vars/{{ varss.name }}.json"
+    mode: "0640"
+  vars:
+    extra_vars: "{{ varss.extra_vars }}"
+  loop: "{{ __awx_job_templates }}"
+  loop_control:
+    loop_var: varss
+    label:
+      - "{{ varss.name }}"
+  when:
+    - varss.extra_vars | length > 0
+    - varss.extra_vars != "---"
+    - varss.extra_vars != "{}"

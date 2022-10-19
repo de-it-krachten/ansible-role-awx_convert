@@ -1,0 +1,5 @@
+---
+
+- name: Convert settings
+  ansible.builtin.set_fact:
+    __awx_settings1: "{{ __awx_settings | dict2items }}"

@@ -1,0 +1,55 @@
+---
+
+- name: Import awx resource '{{ awx_resource }}'  # noqa var-naming
+  ansible.builtin.set_fact:
+    "__awx_{{ awx_resource }}": >-
+      {{
+         lookup('file', awx_export_path + '/' + awx_resource + '.json') |
+         regex_replace('{{ ', '<< ') |
+         regex_replace(' }}', ' >>') |
+         from_json
+      }}
+
+- name: Strip assets.{{ awx_resource }} (if present)  # noqa var-naming jinja[spacing]
+  ansible.builtin.set_fact:
+    "__awx_{{ awx_resource }}": >-
+      {%- if vars['__awx_' + awx_resource]['assets'] is defined -%}
+      {{ vars['__awx_' + awx_resource] | json_query('assets.' + awx_resource) }}
+      {%- else -%}
+      {{ vars['__awx_' + awx_resource] }}
+      {%- endif -%}
+
+- name: Define empty list var for '{{ awx_resource }}'  # noqa var-naming
+  ansible.builtin.set_fact:
+    "__awx_{{ awx_resource }}1": []
+
+- name: Create output directory
+  ansible.builtin.file:
+    path: "{{ awx_config_path }}/{{ awx_resource }}"
+    state: directory
+    mode: "0700"
+
+- name: Create output directory for vars
+  ansible.builtin.file:
+    path: "{{ awx_config_path }}/{{ awx_resource }}/{{ var1 }}"
+    state: directory
+    mode: "0700"
+  loop: "{{ awx_convert_vars[awx_resource] | default([]) }}"
+  loop_control:
+    loop_var: var1
+
+- name: Execute resource specific code
+  ansible.builtin.include_tasks:
+    file: "{{ awx_resource }}.yml"
+
+- name: Save converted code as YAML
+  ansible.builtin.copy:
+    content: >
+      {{
+        vars['__awx_' + awx_resource + '1'] |
+        to_nice_yaml |
+        regex_replace('<< ', '{{ ') |
+        regex_replace(' >>', ' }}')
+      }}
+    dest: "{{ awx_config_path }}/{{ awx_resource }}/{{ awx_resource }}.yml"
+    mode: "0640"

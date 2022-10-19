@@ -1,0 +1,29 @@
+---
+
+- name: Convert projects
+  ansible.builtin.set_fact:
+    __awx_projects1: >
+      {{ __awx_projects1 +
+        [{
+          'name': item.name,
+          'description': item.description,
+          'organization': (item.organization.name if item.organization.name is defined else None),
+          'allow_override': item.allow_override,
+          'credential': (item.credential.name if item.credential.name is defined else None),
+          'custom_virtualenv': item.custom_virtualenv,
+          'scm_branch': item.scm_branch,
+          'scm_clean': item.scm_clean,
+          'scm_delete_on_update': item.scm_delete_on_update,
+          'scm_refspec': item.scm_refspec,
+          'scm_type': item.scm_type,
+          'scm_update_cache_timeout': item.scm_update_cache_timeout,
+          'scm_update_on_launch': item.scm_update_on_launch,
+          'scm_url': item.scm_url,
+          'timeout': item.timeout,
+          'update_project': true
+        }]
+      }}
+  loop: "{{ __awx_projects }}"
+  loop_control:
+    label:
+      - "{{ item.name }}"

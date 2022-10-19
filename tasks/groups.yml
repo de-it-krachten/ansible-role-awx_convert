@@ -1,0 +1,72 @@
+---
+
+- name: Import inventory
+  when: __awx_inventory is not defined
+  block:
+
+    - name: Import awx resource 'inventory'  # noqa var-naming
+      ansible.builtin.set_fact:
+        __awx_inventory_tmp: "{{ lookup('file', awx_export_path + '/inventory.json') | from_json }}"
+
+    - name: Strip assets.inventory (if present)  # noqa var-naming jinja[spacing]
+      ansible.builtin.set_fact:
+        __awx_inventory: >-
+          {%- if vars['__awx_inventory_tmp']['assets'] is defined -%}
+          {{ vars['__awx_inventory_tmp'] | json_query('assets.inventory') }}
+          {%- else -%}
+          {{ vars['__awx_inventory_tmp'] }}
+          {%- endif -%}
+
+- name: Construct lookup dict from inventory->group->children + hosts
+  ansible.builtin.set_fact:
+    inventory_dict: >-
+      {
+        {% for inventory in __awx_inventory %}
+        "{{ inventory.name }}": {
+        {% for group in inventory.related.groups %}
+          "{{ group.name }}": {
+            "children": {{ group.related.children | json_query('[].name') }},
+            "hosts": {{ group.related.hosts | json_query('[].name') }}
+          }{{ ',' if not loop.last else '' }}
+        {% endfor %}
+        }{{ ',' if not loop.last else '' }}
+        {% endfor %}
+      }
+
+- name: Convert groups
+  ansible.builtin.set_fact:
+    __awx_groups1: >
+      {{ __awx_groups1 | default([]) +
+        [{
+          'name': item.name,
+          'inventory': item.summary_fields.inventory.name,
+          'description': item.description,
+          'hosts': inventory_dict[__inventory][__name]['hosts'],
+          'children': inventory_dict[__inventory][__name]['children']
+        }]
+      }}
+  vars:
+    __name: "{{ item.name }}"
+    __inventory: "{{ item.summary_fields.inventory.name }}"
+  loop: "{{ __awx_groups }}"
+  loop_control:
+    label:
+      - "{{ item.name }}"
+  when: item.name is not search('-')
+
+- name: Write groups/variables to file (JSON)
+  ansible.builtin.template:
+    src: extract2json.j2
+    dest: "{{ awx_config_path }}/groups/variables/{{ varss.name }}.json"
+    mode: "0640"
+  vars:
+    extra_vars: "{{ varss.variables }}"
+  loop: "{{ __awx_groups }}"
+  loop_control:
+    loop_var: varss
+    label:
+      - "{{ varss.name }}"
+  when:
+    - varss.variables | length > 0
+    - varss.variables != "---"
+    - varss.variables != "{}"

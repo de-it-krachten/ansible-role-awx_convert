@@ -1,0 +1,13 @@
+{% if extra_vars|length == 0 %}
+{}
+{% else %}
+{% if extra_vars is search('^---') or extra_vars is search('^[a-zA-Z]+') %}
+{% if extra_vars == "---" %}
+{}
+{% else %}
+{{ extra_vars | from_yaml | to_nice_json | regex_replace('<< ', '{{ ') | regex_replace(' >>', ' }}') }}
+{% endif %}
+{% else %}
+{{ extra_vars |default({}) | to_nice_json | regex_replace('<< ', '{{ ') | regex_replace(' >>', ' }}') }}
+{% endif %}
+{% endif %}
