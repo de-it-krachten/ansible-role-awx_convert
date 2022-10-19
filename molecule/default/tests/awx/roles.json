@@ -1,0 +1,26 @@
+[
+    {
+        "description": "Can view all aspects of the system",
+        "id": 2,
+        "name": "System Auditor",
+        "related": {
+            "teams": "/api/v2/roles/2/teams/",
+            "users": "/api/v2/roles/2/users/"
+        },
+        "summary_fields": {},
+        "type": "role",
+        "url": "/api/v2/roles/2/"
+    },
+    {
+        "description": "Can manage all aspects of the system",
+        "id": 1,
+        "name": "System Administrator",
+        "related": {
+            "teams": "/api/v2/roles/1/teams/",
+            "users": "/api/v2/roles/1/users/"
+        },
+        "summary_fields": {},
+        "type": "role",
+        "url": "/api/v2/roles/1/"
+    }
+]

@@ -1,0 +1,516 @@
+{
+    "ACTIVITY_STREAM_ENABLED": true,
+    "ACTIVITY_STREAM_ENABLED_FOR_INVENTORY_SYNC": false,
+    "AD_HOC_COMMANDS": [
+        "command",
+        "shell",
+        "yum",
+        "apt",
+        "apt_key",
+        "apt_repository",
+        "apt_rpm",
+        "service",
+        "group",
+        "user",
+        "mount",
+        "ping",
+        "selinux",
+        "setup",
+        "win_ping",
+        "win_service",
+        "win_updates",
+        "win_group",
+        "win_user"
+    ],
+    "ALLOW_JINJA_IN_EXTRA_VARS": "template",
+    "ALLOW_OAUTH2_FOR_EXTERNAL_USERS": false,
+    "ANSIBLE_FACT_CACHE_TIMEOUT": 0,
+    "AUTHENTICATION_BACKENDS": [
+        "awx.sso.backends.TACACSPlusBackend",
+        "django.contrib.auth.backends.ModelBackend"
+    ],
+    "AUTH_BASIC_ENABLED": true,
+    "AUTH_LDAP_1_BIND_DN": "",
+    "AUTH_LDAP_1_BIND_PASSWORD": "",
+    "AUTH_LDAP_1_CONNECTION_OPTIONS": {
+        "OPT_NETWORK_TIMEOUT": 30,
+        "OPT_REFERRALS": 0
+    },
+    "AUTH_LDAP_1_DENY_GROUP": null,
+    "AUTH_LDAP_1_GROUP_SEARCH": [],
+    "AUTH_LDAP_1_GROUP_TYPE": "MemberDNGroupType",
+    "AUTH_LDAP_1_GROUP_TYPE_PARAMS": {
+        "member_attr": "member",
+        "name_attr": "cn"
+    },
+    "AUTH_LDAP_1_ORGANIZATION_MAP": {},
+    "AUTH_LDAP_1_REQUIRE_GROUP": null,
+    "AUTH_LDAP_1_SERVER_URI": "",
+    "AUTH_LDAP_1_START_TLS": false,
+    "AUTH_LDAP_1_TEAM_MAP": {},
+    "AUTH_LDAP_1_USER_ATTR_MAP": {},
+    "AUTH_LDAP_1_USER_DN_TEMPLATE": null,
+    "AUTH_LDAP_1_USER_FLAGS_BY_GROUP": {},
+    "AUTH_LDAP_1_USER_SEARCH": [],
+    "AUTH_LDAP_2_BIND_DN": "",
+    "AUTH_LDAP_2_BIND_PASSWORD": "",
+    "AUTH_LDAP_2_CONNECTION_OPTIONS": {
+        "OPT_NETWORK_TIMEOUT": 30,
+        "OPT_REFERRALS": 0
+    },
+    "AUTH_LDAP_2_DENY_GROUP": null,
+    "AUTH_LDAP_2_GROUP_SEARCH": [],
+    "AUTH_LDAP_2_GROUP_TYPE": "MemberDNGroupType",
+    "AUTH_LDAP_2_GROUP_TYPE_PARAMS": {
+        "member_attr": "member",
+        "name_attr": "cn"
+    },
+    "AUTH_LDAP_2_ORGANIZATION_MAP": {},
+    "AUTH_LDAP_2_REQUIRE_GROUP": null,
+    "AUTH_LDAP_2_SERVER_URI": "",
+    "AUTH_LDAP_2_START_TLS": false,
+    "AUTH_LDAP_2_TEAM_MAP": {},
+    "AUTH_LDAP_2_USER_ATTR_MAP": {},
+    "AUTH_LDAP_2_USER_DN_TEMPLATE": null,
+    "AUTH_LDAP_2_USER_FLAGS_BY_GROUP": {},
+    "AUTH_LDAP_2_USER_SEARCH": [],
+    "AUTH_LDAP_3_BIND_DN": "",
+    "AUTH_LDAP_3_BIND_PASSWORD": "",
+    "AUTH_LDAP_3_CONNECTION_OPTIONS": {
+        "OPT_NETWORK_TIMEOUT": 30,
+        "OPT_REFERRALS": 0
+    },
+    "AUTH_LDAP_3_DENY_GROUP": null,
+    "AUTH_LDAP_3_GROUP_SEARCH": [],
+    "AUTH_LDAP_3_GROUP_TYPE": "MemberDNGroupType",
+    "AUTH_LDAP_3_GROUP_TYPE_PARAMS": {
+        "member_attr": "member",
+        "name_attr": "cn"
+    },
+    "AUTH_LDAP_3_ORGANIZATION_MAP": {},
+    "AUTH_LDAP_3_REQUIRE_GROUP": null,
+    "AUTH_LDAP_3_SERVER_URI": "",
+    "AUTH_LDAP_3_START_TLS": false,
+    "AUTH_LDAP_3_TEAM_MAP": {},
+    "AUTH_LDAP_3_USER_ATTR_MAP": {},
+    "AUTH_LDAP_3_USER_DN_TEMPLATE": null,
+    "AUTH_LDAP_3_USER_FLAGS_BY_GROUP": {},
+    "AUTH_LDAP_3_USER_SEARCH": [],
+    "AUTH_LDAP_4_BIND_DN": "",
+    "AUTH_LDAP_4_BIND_PASSWORD": "",
+    "AUTH_LDAP_4_CONNECTION_OPTIONS": {
+        "OPT_NETWORK_TIMEOUT": 30,
+        "OPT_REFERRALS": 0
+    },
+    "AUTH_LDAP_4_DENY_GROUP": null,
+    "AUTH_LDAP_4_GROUP_SEARCH": [],
+    "AUTH_LDAP_4_GROUP_TYPE": "MemberDNGroupType",
+    "AUTH_LDAP_4_GROUP_TYPE_PARAMS": {
+        "member_attr": "member",
+        "name_attr": "cn"
+    },
+    "AUTH_LDAP_4_ORGANIZATION_MAP": {},
+    "AUTH_LDAP_4_REQUIRE_GROUP": null,
+    "AUTH_LDAP_4_SERVER_URI": "",
+    "AUTH_LDAP_4_START_TLS": false,
+    "AUTH_LDAP_4_TEAM_MAP": {},
+    "AUTH_LDAP_4_USER_ATTR_MAP": {},
+    "AUTH_LDAP_4_USER_DN_TEMPLATE": null,
+    "AUTH_LDAP_4_USER_FLAGS_BY_GROUP": {},
+    "AUTH_LDAP_4_USER_SEARCH": [],
+    "AUTH_LDAP_5_BIND_DN": "",
+    "AUTH_LDAP_5_BIND_PASSWORD": "",
+    "AUTH_LDAP_5_CONNECTION_OPTIONS": {
+        "OPT_NETWORK_TIMEOUT": 30,
+        "OPT_REFERRALS": 0
+    },
+    "AUTH_LDAP_5_DENY_GROUP": null,
+    "AUTH_LDAP_5_GROUP_SEARCH": [],
+    "AUTH_LDAP_5_GROUP_TYPE": "MemberDNGroupType",
+    "AUTH_LDAP_5_GROUP_TYPE_PARAMS": {
+        "member_attr": "member",
+        "name_attr": "cn"
+    },
+    "AUTH_LDAP_5_ORGANIZATION_MAP": {},
+    "AUTH_LDAP_5_REQUIRE_GROUP": null,
+    "AUTH_LDAP_5_SERVER_URI": "",
+    "AUTH_LDAP_5_START_TLS": false,
+    "AUTH_LDAP_5_TEAM_MAP": {},
+    "AUTH_LDAP_5_USER_ATTR_MAP": {},
+    "AUTH_LDAP_5_USER_DN_TEMPLATE": null,
+    "AUTH_LDAP_5_USER_FLAGS_BY_GROUP": {},
+    "AUTH_LDAP_5_USER_SEARCH": [],
+    "AUTH_LDAP_BIND_DN": "",
+    "AUTH_LDAP_BIND_PASSWORD": "",
+    "AUTH_LDAP_CONNECTION_OPTIONS": {
+        "OPT_NETWORK_TIMEOUT": 30,
+        "OPT_REFERRALS": 0
+    },
+    "AUTH_LDAP_DENY_GROUP": null,
+    "AUTH_LDAP_GROUP_SEARCH": [],
+    "AUTH_LDAP_GROUP_TYPE": "MemberDNGroupType",
+    "AUTH_LDAP_GROUP_TYPE_PARAMS": {
+        "member_attr": "member",
+        "name_attr": "cn"
+    },
+    "AUTH_LDAP_ORGANIZATION_MAP": {},
+    "AUTH_LDAP_REQUIRE_GROUP": null,
+    "AUTH_LDAP_SERVER_URI": "",
+    "AUTH_LDAP_START_TLS": false,
+    "AUTH_LDAP_TEAM_MAP": {},
+    "AUTH_LDAP_USER_ATTR_MAP": {},
+    "AUTH_LDAP_USER_DN_TEMPLATE": null,
+    "AUTH_LDAP_USER_FLAGS_BY_GROUP": {},
+    "AUTH_LDAP_USER_SEARCH": [],
+    "AUTOMATION_ANALYTICS_GATHER_INTERVAL": 14400,
+    "AUTOMATION_ANALYTICS_LAST_GATHER": null,
+    "AUTOMATION_ANALYTICS_URL": "https://example.com",
+    "AWX_ANSIBLE_CALLBACK_PLUGINS": [],
+    "AWX_COLLECTIONS_ENABLED": true,
+    "AWX_ISOLATED_CHECK_INTERVAL": 30,
+    "AWX_ISOLATED_CONNECTION_TIMEOUT": 10,
+    "AWX_ISOLATED_HOST_KEY_CHECKING": false,
+    "AWX_ISOLATED_KEY_GENERATION": true,
+    "AWX_ISOLATED_LAUNCH_TIMEOUT": 600,
+    "AWX_ISOLATED_PRIVATE_KEY": "",
+    "AWX_ISOLATED_PUBLIC_KEY": "",
+    "AWX_PROOT_BASE_PATH": "/tmp",
+    "AWX_PROOT_ENABLED": false,
+    "AWX_PROOT_HIDE_PATHS": [],
+    "AWX_PROOT_SHOW_PATHS": [],
+    "AWX_RESOURCE_PROFILING_CPU_POLL_INTERVAL": 0.25,
+    "AWX_RESOURCE_PROFILING_ENABLED": false,
+    "AWX_RESOURCE_PROFILING_MEMORY_POLL_INTERVAL": 0.25,
+    "AWX_RESOURCE_PROFILING_PID_POLL_INTERVAL": 0.25,
+    "AWX_ROLES_ENABLED": true,
+    "AWX_SHOW_PLAYBOOK_LINKS": false,
+    "AWX_TASK_ENV": {},
+    "CUSTOM_LOGIN_INFO": "",
+    "CUSTOM_LOGO": "",
+    "CUSTOM_VENV_PATHS": [],
+    "DEFAULT_INVENTORY_UPDATE_TIMEOUT": 0,
+    "DEFAULT_JOB_TIMEOUT": 0,
+    "DEFAULT_PROJECT_UPDATE_TIMEOUT": 0,
+    "EVENT_STDOUT_MAX_BYTES_DISPLAY": 1024,
+    "GALAXY_IGNORE_CERTS": false,
+    "INSIGHTS_TRACKING_STATE": false,
+    "INSTALL_UUID": "f116e37b-ccbb-4516-8091-b329b6d74823",
+    "LICENSE": {},
+    "LOGIN_REDIRECT_OVERRIDE": "",
+    "LOG_AGGREGATOR_ENABLED": false,
+    "LOG_AGGREGATOR_HOST": null,
+    "LOG_AGGREGATOR_INDIVIDUAL_FACTS": false,
+    "LOG_AGGREGATOR_LEVEL": "INFO",
+    "LOG_AGGREGATOR_LOGGERS": [
+        "awx",
+        "activity_stream",
+        "job_events",
+        "system_tracking"
+    ],
+    "LOG_AGGREGATOR_MAX_DISK_USAGE_GB": 1,
+    "LOG_AGGREGATOR_MAX_DISK_USAGE_PATH": "/var/lib/awx",
+    "LOG_AGGREGATOR_PASSWORD": "",
+    "LOG_AGGREGATOR_PORT": null,
+    "LOG_AGGREGATOR_PROTOCOL": "https",
+    "LOG_AGGREGATOR_RSYSLOGD_DEBUG": false,
+    "LOG_AGGREGATOR_TCP_TIMEOUT": 5,
+    "LOG_AGGREGATOR_TOWER_UUID": "",
+    "LOG_AGGREGATOR_TYPE": null,
+    "LOG_AGGREGATOR_USERNAME": "",
+    "LOG_AGGREGATOR_VERIFY_CERT": true,
+    "MANAGE_ORGANIZATION_AUTH": true,
+    "MAX_FORKS": 200,
+    "MAX_UI_JOB_EVENTS": 4000,
+    "NAMED_URL_FORMATS": {
+        "applications": "<name>++<organization.name>",
+        "credential_types": "<name>+<kind>",
+        "credentials": "<name>++<credential_type.name>+<credential_type.kind>++<organization.name>",
+        "groups": "<name>++<inventory.name>++<organization.name>",
+        "hosts": "<name>++<inventory.name>++<organization.name>",
+        "instance_groups": "<name>",
+        "instances": "<hostname>",
+        "inventories": "<name>++<organization.name>",
+        "inventory_scripts": "<name>++<organization.name>",
+        "inventory_sources": "<name>++<inventory.name>++<organization.name>",
+        "job_templates": "<name>++<organization.name>",
+        "labels": "<name>++<organization.name>",
+        "notification_templates": "<name>++<organization.name>",
+        "organizations": "<name>",
+        "projects": "<name>++<organization.name>",
+        "teams": "<name>++<organization.name>",
+        "users": "<username>",
+        "workflow_job_template_nodes": "<identifier>++<workflow_job_template.name>++<organization.name>",
+        "workflow_job_templates": "<name>++<organization.name>"
+    },
+    "NAMED_URL_GRAPH_NODES": {
+        "applications": {
+            "adj_list": [
+                [
+                    "organization",
+                    "organizations"
+                ]
+            ],
+            "fields": [
+                "name"
+            ]
+        },
+        "credential_types": {
+            "adj_list": [],
+            "fields": [
+                "name",
+                "kind"
+            ]
+        },
+        "credentials": {
+            "adj_list": [
+                [
+                    "credential_type",
+                    "credential_types"
+                ],
+                [
+                    "organization",
+                    "organizations"
+                ]
+            ],
+            "fields": [
+                "name"
+            ]
+        },
+        "groups": {
+            "adj_list": [
+                [
+                    "inventory",
+                    "inventories"
+                ]
+            ],
+            "fields": [
+                "name"
+            ]
+        },
+        "hosts": {
+            "adj_list": [
+                [
+                    "inventory",
+                    "inventories"
+                ]
+            ],
+            "fields": [
+                "name"
+            ]
+        },
+        "instance_groups": {
+            "adj_list": [],
+            "fields": [
+                "name"
+            ]
+        },
+        "instances": {
+            "adj_list": [],
+            "fields": [
+                "hostname"
+            ]
+        },
+        "inventories": {
+            "adj_list": [
+                [
+                    "organization",
+                    "organizations"
+                ]
+            ],
+            "fields": [
+                "name"
+            ]
+        },
+        "inventory_scripts": {
+            "adj_list": [
+                [
+                    "organization",
+                    "organizations"
+                ]
+            ],
+            "fields": [
+                "name"
+            ]
+        },
+        "inventory_sources": {
+            "adj_list": [
+                [
+                    "inventory",
+                    "inventories"
+                ]
+            ],
+            "fields": [
+                "name"
+            ]
+        },
+        "job_templates": {
+            "adj_list": [
+                [
+                    "organization",
+                    "organizations"
+                ]
+            ],
+            "fields": [
+                "name"
+            ]
+        },
+        "labels": {
+            "adj_list": [
+                [
+                    "organization",
+                    "organizations"
+                ]
+            ],
+            "fields": [
+                "name"
+            ]
+        },
+        "notification_templates": {
+            "adj_list": [
+                [
+                    "organization",
+                    "organizations"
+                ]
+            ],
+            "fields": [
+                "name"
+            ]
+        },
+        "organizations": {
+            "adj_list": [],
+            "fields": [
+                "name"
+            ]
+        },
+        "projects": {
+            "adj_list": [
+                [
+                    "organization",
+                    "organizations"
+                ]
+            ],
+            "fields": [
+                "name"
+            ]
+        },
+        "teams": {
+            "adj_list": [
+                [
+                    "organization",
+                    "organizations"
+                ]
+            ],
+            "fields": [
+                "name"
+            ]
+        },
+        "users": {
+            "adj_list": [],
+            "fields": [
+                "username"
+            ]
+        },
+        "workflow_job_template_nodes": {
+            "adj_list": [
+                [
+                    "workflow_job_template",
+                    "workflow_job_templates"
+                ]
+            ],
+            "fields": [
+                "identifier"
+            ]
+        },
+        "workflow_job_templates": {
+            "adj_list": [
+                [
+                    "organization",
+                    "organizations"
+                ]
+            ],
+            "fields": [
+                "name"
+            ]
+        }
+    },
+    "OAUTH2_PROVIDER": {
+        "ACCESS_TOKEN_EXPIRE_SECONDS": 31536000000,
+        "AUTHORIZATION_CODE_EXPIRE_SECONDS": 600,
+        "REFRESH_TOKEN_EXPIRE_SECONDS": 2628000
+    },
+    "ORG_ADMINS_CAN_SEE_ALL_USERS": true,
+    "PENDO_TRACKING_STATE": "off",
+    "PROJECT_UPDATE_VVV": false,
+    "PROXY_IP_ALLOWED_LIST": [],
+    "RADIUS_PORT": 1812,
+    "RADIUS_SECRET": "",
+    "RADIUS_SERVER": "",
+    "REDHAT_PASSWORD": "",
+    "REDHAT_USERNAME": "",
+    "REMOTE_HOST_HEADERS": [
+        "REMOTE_ADDR",
+        "REMOTE_HOST"
+    ],
+    "SAML_AUTO_CREATE_OBJECTS": true,
+    "SCHEDULE_MAX_JOBS": 10,
+    "SESSIONS_PER_USER": -1,
+    "SESSION_COOKIE_AGE": 1800,
+    "SOCIAL_AUTH_AZUREAD_OAUTH2_CALLBACK_URL": "https://olamhost/sso/complete/azuread-oauth2/",
+    "SOCIAL_AUTH_AZUREAD_OAUTH2_KEY": "",
+    "SOCIAL_AUTH_AZUREAD_OAUTH2_ORGANIZATION_MAP": null,
+    "SOCIAL_AUTH_AZUREAD_OAUTH2_SECRET": "",
+    "SOCIAL_AUTH_AZUREAD_OAUTH2_TEAM_MAP": null,
+    "SOCIAL_AUTH_GITHUB_CALLBACK_URL": "https://olamhost/sso/complete/github/",
+    "SOCIAL_AUTH_GITHUB_KEY": "",
+    "SOCIAL_AUTH_GITHUB_ORGANIZATION_MAP": null,
+    "SOCIAL_AUTH_GITHUB_ORG_CALLBACK_URL": "https://olamhost/sso/complete/github-org/",
+    "SOCIAL_AUTH_GITHUB_ORG_KEY": "",
+    "SOCIAL_AUTH_GITHUB_ORG_NAME": "",
+    "SOCIAL_AUTH_GITHUB_ORG_ORGANIZATION_MAP": null,
+    "SOCIAL_AUTH_GITHUB_ORG_SECRET": "",
+    "SOCIAL_AUTH_GITHUB_ORG_TEAM_MAP": null,
+    "SOCIAL_AUTH_GITHUB_SECRET": "",
+    "SOCIAL_AUTH_GITHUB_TEAM_CALLBACK_URL": "https://olamhost/sso/complete/github-team/",
+    "SOCIAL_AUTH_GITHUB_TEAM_ID": "",
+    "SOCIAL_AUTH_GITHUB_TEAM_KEY": "",
+    "SOCIAL_AUTH_GITHUB_TEAM_MAP": null,
+    "SOCIAL_AUTH_GITHUB_TEAM_ORGANIZATION_MAP": null,
+    "SOCIAL_AUTH_GITHUB_TEAM_SECRET": "",
+    "SOCIAL_AUTH_GITHUB_TEAM_TEAM_MAP": null,
+    "SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS": {},
+    "SOCIAL_AUTH_GOOGLE_OAUTH2_CALLBACK_URL": "https://olamhost/sso/complete/google-oauth2/",
+    "SOCIAL_AUTH_GOOGLE_OAUTH2_KEY": "",
+    "SOCIAL_AUTH_GOOGLE_OAUTH2_ORGANIZATION_MAP": null,
+    "SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET": "",
+    "SOCIAL_AUTH_GOOGLE_OAUTH2_TEAM_MAP": null,
+    "SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS": [],
+    "SOCIAL_AUTH_ORGANIZATION_MAP": null,
+    "SOCIAL_AUTH_SAML_CALLBACK_URL": "https://olamhost/sso/complete/saml/",
+    "SOCIAL_AUTH_SAML_ENABLED_IDPS": {},
+    "SOCIAL_AUTH_SAML_EXTRA_DATA": null,
+    "SOCIAL_AUTH_SAML_METADATA_URL": "https://olamhost/sso/metadata/saml/",
+    "SOCIAL_AUTH_SAML_ORGANIZATION_ATTR": {},
+    "SOCIAL_AUTH_SAML_ORGANIZATION_MAP": null,
+    "SOCIAL_AUTH_SAML_ORG_INFO": {},
+    "SOCIAL_AUTH_SAML_SECURITY_CONFIG": {
+        "requestedAuthnContext": false
+    },
+    "SOCIAL_AUTH_SAML_SP_ENTITY_ID": "",
+    "SOCIAL_AUTH_SAML_SP_EXTRA": null,
+    "SOCIAL_AUTH_SAML_SP_PRIVATE_KEY": "",
+    "SOCIAL_AUTH_SAML_SP_PUBLIC_CERT": "",
+    "SOCIAL_AUTH_SAML_SUPPORT_CONTACT": {},
+    "SOCIAL_AUTH_SAML_TEAM_ATTR": {},
+    "SOCIAL_AUTH_SAML_TEAM_MAP": null,
+    "SOCIAL_AUTH_SAML_TECHNICAL_CONTACT": {},
+    "SOCIAL_AUTH_TEAM_MAP": null,
+    "SOCIAL_AUTH_USER_FIELDS": null,
+    "STDOUT_MAX_BYTES_DISPLAY": 1048576,
+    "TACACSPLUS_AUTH_PROTOCOL": "ascii",
+    "TACACSPLUS_HOST": "",
+    "TACACSPLUS_PORT": 49,
+    "TACACSPLUS_SECRET": "",
+    "TACACSPLUS_SESSION_TIMEOUT": 5,
+    "TOWER_URL_BASE": "https://olamhost",
+    "UI_LIVE_UPDATES_ENABLED": true
+}

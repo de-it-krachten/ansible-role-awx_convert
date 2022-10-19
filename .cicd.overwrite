@@ -1,0 +1,19 @@
+---
+
+# Generic
+generic:
+  role: ansible-role-awx_convert
+  role_short: awx_convert
+  role_description: |
+    Convert AWX export into Configuration-as-Code, usable by the role 'awx_import'
+  collections: []
+
+molecule:
+  requirements:
+    roles_extra: []
+  converge:
+    pre: converge-pre.yml
+    become: "no"
+    vars:
+      awx_export_path: /tmp/awx
+      awx_config_path: /tmp/awx1

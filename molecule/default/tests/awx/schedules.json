@@ -1,0 +1,182 @@
+[
+    {
+        "created": "2022-05-30T16:26:53.733929Z",
+        "description": "Cleans out expired browser sessions",
+        "diff_mode": null,
+        "dtend": "2022-05-30T16:26:53Z",
+        "dtstart": "2022-05-30T16:26:53Z",
+        "enabled": true,
+        "extra_data": {},
+        "id": 4,
+        "inventory": null,
+        "job_tags": null,
+        "job_type": null,
+        "limit": null,
+        "modified": "2022-05-30T16:26:53.733929Z",
+        "name": "Cleanup Expired Sessions",
+        "next_run": null,
+        "related": {
+            "credentials": "/api/v2/schedules/4/credentials/",
+            "unified_job_template": "/api/v2/system_job_templates/4/",
+            "unified_jobs": "/api/v2/schedules/4/jobs/"
+        },
+        "rrule": "DTSTART:20220530T162653Z RRULE:FREQ=WEEKLY;INTERVAL=1;COUNT=1",
+        "scm_branch": null,
+        "skip_tags": null,
+        "summary_fields": {
+            "unified_job_template": {
+                "description": "Cleans out expired browser sessions",
+                "id": 4,
+                "job_type": "cleanup_sessions",
+                "name": "Cleanup Expired Sessions",
+                "unified_job_type": "system_job"
+            },
+            "user_capabilities": {
+                "delete": true,
+                "edit": true
+            }
+        },
+        "timezone": "UTC",
+        "type": "schedule",
+        "unified_job_template": 4,
+        "until": "",
+        "url": "/api/v2/schedules/4/",
+        "verbosity": null
+    },
+    {
+        "created": "2022-05-30T16:26:53.836243Z",
+        "description": "Removes expired OAuth 2 access and refresh tokens",
+        "diff_mode": null,
+        "dtend": "2022-05-30T16:26:53Z",
+        "dtstart": "2022-05-30T16:26:53Z",
+        "enabled": true,
+        "extra_data": {},
+        "id": 5,
+        "inventory": null,
+        "job_tags": null,
+        "job_type": null,
+        "limit": null,
+        "modified": "2022-05-30T16:26:53.836243Z",
+        "name": "Cleanup Expired OAuth 2 Tokens",
+        "next_run": null,
+        "related": {
+            "credentials": "/api/v2/schedules/5/credentials/",
+            "unified_job_template": "/api/v2/system_job_templates/5/",
+            "unified_jobs": "/api/v2/schedules/5/jobs/"
+        },
+        "rrule": "DTSTART:20220530T162653Z RRULE:FREQ=WEEKLY;INTERVAL=1;COUNT=1",
+        "scm_branch": null,
+        "skip_tags": null,
+        "summary_fields": {
+            "unified_job_template": {
+                "description": "Cleanup expired OAuth 2 access and refresh tokens",
+                "id": 5,
+                "job_type": "cleanup_tokens",
+                "name": "Cleanup Expired OAuth 2 Tokens",
+                "unified_job_type": "system_job"
+            },
+            "user_capabilities": {
+                "delete": true,
+                "edit": true
+            }
+        },
+        "timezone": "UTC",
+        "type": "schedule",
+        "unified_job_template": 5,
+        "until": "",
+        "url": "/api/v2/schedules/5/",
+        "verbosity": null
+    },
+    {
+        "created": "2022-05-30T16:25:58.469641Z",
+        "description": "Automatically Generated Schedule",
+        "diff_mode": null,
+        "dtend": null,
+        "dtstart": "2022-05-31T16:25:58Z",
+        "enabled": true,
+        "extra_data": {
+            "days": "355"
+        },
+        "id": 2,
+        "inventory": null,
+        "job_tags": null,
+        "job_type": null,
+        "limit": null,
+        "modified": "2022-05-30T16:25:58.469641Z",
+        "name": "Cleanup Activity Schedule",
+        "next_run": "2022-10-25T16:25:58Z",
+        "related": {
+            "credentials": "/api/v2/schedules/2/credentials/",
+            "unified_job_template": "/api/v2/system_job_templates/2/",
+            "unified_jobs": "/api/v2/schedules/2/jobs/"
+        },
+        "rrule": "DTSTART:20220530T162558Z RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=TU",
+        "scm_branch": null,
+        "skip_tags": null,
+        "summary_fields": {
+            "unified_job_template": {
+                "description": "Remove activity stream history",
+                "id": 2,
+                "job_type": "cleanup_activitystream",
+                "name": "Cleanup Activity Stream",
+                "unified_job_type": "system_job"
+            },
+            "user_capabilities": {
+                "delete": true,
+                "edit": true
+            }
+        },
+        "timezone": "UTC",
+        "type": "schedule",
+        "unified_job_template": 2,
+        "until": "",
+        "url": "/api/v2/schedules/2/",
+        "verbosity": null
+    },
+    {
+        "created": "2022-05-30T16:25:58.469641Z",
+        "description": "Automatically Generated Schedule",
+        "diff_mode": null,
+        "dtend": null,
+        "dtstart": "2022-06-05T16:25:58Z",
+        "enabled": true,
+        "extra_data": {
+            "days": "120"
+        },
+        "id": 1,
+        "inventory": null,
+        "job_tags": null,
+        "job_type": null,
+        "limit": null,
+        "modified": "2022-05-30T16:25:58.469641Z",
+        "name": "Cleanup Job Schedule",
+        "next_run": "2022-10-23T16:25:58Z",
+        "related": {
+            "credentials": "/api/v2/schedules/1/credentials/",
+            "unified_job_template": "/api/v2/system_job_templates/1/",
+            "unified_jobs": "/api/v2/schedules/1/jobs/"
+        },
+        "rrule": "DTSTART:20220530T162558Z RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU",
+        "scm_branch": null,
+        "skip_tags": null,
+        "summary_fields": {
+            "unified_job_template": {
+                "description": "Remove job history",
+                "id": 1,
+                "job_type": "cleanup_jobs",
+                "name": "Cleanup Job Details",
+                "unified_job_type": "system_job"
+            },
+            "user_capabilities": {
+                "delete": true,
+                "edit": true
+            }
+        },
+        "timezone": "UTC",
+        "type": "schedule",
+        "unified_job_template": 1,
+        "until": "",
+        "url": "/api/v2/schedules/1/",
+        "verbosity": null
+    }
+]

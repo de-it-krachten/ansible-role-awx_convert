@@ -1,0 +1,110 @@
+[![CI](https://github.com/de-it-krachten/ansible-role-awx_convert/workflows/CI/badge.svg?event=push)](https://github.com/de-it-krachten/ansible-role-awx_convert/actions?query=workflow%3ACI)
+
+
+# ansible-role-awx_convert
+
+Convert AWX export into Configuration-as-Code, usable by the role 'awx_import'
+
+
+
+## Dependencies
+
+#### Roles
+None
+
+#### Collections
+- community.general
+- community.general
+
+## Platforms
+
+Supported platforms
+
+- Red Hat Enterprise Linux 7<sup>1</sup>
+- Red Hat Enterprise Linux 8<sup>1</sup>
+- Red Hat Enterprise Linux 9<sup>1</sup>
+- CentOS 7
+- RockyLinux 8
+- RockyLinux 9
+- OracleLinux 8
+- AlmaLinux 8
+- AlmaLinux 9
+- Debian 10 (Buster)
+- Debian 11 (Bullseye)
+- Ubuntu 18.04 LTS
+- Ubuntu 20.04 LTS
+- Ubuntu 22.04 LTS
+- Fedora 35
+- Fedora 36
+
+Note:
+<sup>1</sup> : no automated testing is performed on these platforms
+
+## Role Variables
+### defaults/main.yml
+<pre><code>
+# Host to execute code from
+awx_delegation_host: localhost
+
+# List of AWX resources to convert
+awx_convert_resources:
+  - settings
+  - credential_types
+  - credentials
+  # - execution_environments
+  - inventory
+  - inventory_sources
+  - job_templates
+  - notification_templates
+  - organizations
+  - projects
+  - teams
+  - users
+  - workflow_job_templates
+  # - roles  ## Not yet implemented
+  - schedules
+  # - applications  ## Not yet implemented
+  # - system_job_templates  ## Not yet implemented
+  - groups
+  - hosts
+
+# Dict of additional variable files
+awx_convert_vars:
+  credential_types:
+    - injectors
+    - inputs
+  groups:
+    - variables
+  hosts:
+    - variables
+  inventory:
+    - variables
+  inventory_sources:
+    - source_vars
+  job_templates:
+    - extra_vars
+  schedules:
+    - extra_data
+  workflow_job_templates:
+    - extra_vars
+</pre></code>
+
+
+
+
+## Example Playbook
+### molecule/default/converge.yml
+<pre><code>
+- ansible.builtin.import_playbook: converge-pre.yml
+
+- name: sample playbook for role 'awx_convert'
+  hosts: all
+  become: "no"
+  vars:
+    awx_export_path: /tmp/awx
+    awx_config_path: /tmp/awx1
+  tasks:
+    - name: Include role 'awx_convert'
+      ansible.builtin.include_role:
+        name: awx_convert
+</pre></code>
