@@ -1,6 +1,6 @@
 ---
 
-- name: Import awx resource '{{ awx_resource }}'  # noqa var-naming
+- name: Import awx resource '{{ awx_resource }}'  # noqa var-naming name[template]
   ansible.builtin.set_fact:
     "__awx_{{ awx_resource }}": >-
       {{
@@ -10,7 +10,7 @@
          from_json
       }}
 
-- name: Strip assets.{{ awx_resource }} (if present)  # noqa var-naming jinja[spacing]
+- name: Strip assets.{{ awx_resource }} (if present)  # noqa var-naming jinja[spacing] name[template]
   ansible.builtin.set_fact:
     "__awx_{{ awx_resource }}": >-
       {%- if vars['__awx_' + awx_resource]['assets'] is defined -%}
@@ -19,7 +19,7 @@
       {{ vars['__awx_' + awx_resource] }}
       {%- endif -%}
 
-- name: Define empty list var for '{{ awx_resource }}'  # noqa var-naming
+- name: Define empty list var for '{{ awx_resource }}'  # noqa var-naming name[template]
   ansible.builtin.set_fact:
     "__awx_{{ awx_resource }}1": []
 

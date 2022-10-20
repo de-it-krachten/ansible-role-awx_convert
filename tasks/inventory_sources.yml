@@ -37,6 +37,7 @@
   ansible.builtin.template:
     src: extract2json.j2
     dest: "{{ awx_config_path }}/inventory_sources/source_vars/{{ varss.name }}.json"
+    mode: "0640"
   vars:
     extra_vars: "{{ varss.source_vars }}"
   loop: "{{ __awx_inventory_sources }}"

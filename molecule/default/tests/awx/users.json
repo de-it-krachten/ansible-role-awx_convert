@@ -1,0 +1,28 @@
+{
+    "assets": {
+        "users": [
+            {
+                "email": "admin@example.com",
+                "first_name": "",
+                "is_superuser": true,
+                "is_system_auditor": false,
+                "last_name": "",
+                "natural_key": {
+                    "type": "user",
+                    "username": "admin"
+                },
+                "related": {
+                    "roles": [
+                        {
+                            "name": "System Administrator",
+                            "type": "role"
+                        }
+                    ]
+                },
+                "username": "admin"
+            }
+        ]
+    },
+    "changed": false,
+    "failed": false
+}

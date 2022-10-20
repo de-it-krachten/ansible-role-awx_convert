@@ -1,0 +1,17 @@
+---
+
+- hosts: localhost
+  vars:
+    awx_export_path: /tmp/awx
+  tasks:
+    - name: Create export directory
+      file:
+        path: "{{ awx_export_path }}"
+        state: directory
+        mode: "0700"
+
+    - name: Copy export files
+      copy:
+        src: tests/awx/
+        dest: "{{ awx_export_path }}"
+        remote_src: yes

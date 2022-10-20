@@ -1,5 +1,9 @@
 ---
 
+# Host to execute code from
+awx_delegation_host: localhost
+
+# List of AWX resources to convert
 awx_convert_resources:
   - settings
   - credential_types
@@ -21,6 +25,7 @@ awx_convert_resources:
   - groups
   - hosts
 
+# Dict of additional variable files
 awx_convert_vars:
   credential_types:
     - injectors

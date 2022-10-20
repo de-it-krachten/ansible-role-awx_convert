@@ -1,0 +1,96 @@
+[
+    {
+        "created": "2022-05-30T16:25:58.469641Z",
+        "description": "Remove activity stream history",
+        "id": 2,
+        "job_type": "cleanup_activitystream",
+        "last_job_failed": false,
+        "last_job_run": null,
+        "modified": "2022-05-30T16:25:58.469641Z",
+        "name": "Cleanup Activity Stream",
+        "next_job_run": "2022-10-25T16:25:58Z",
+        "related": {
+            "jobs": "/api/v2/system_job_templates/2/jobs/",
+            "launch": "/api/v2/system_job_templates/2/launch/",
+            "next_schedule": "/api/v2/schedules/2/",
+            "notification_templates_error": "/api/v2/system_job_templates/2/notification_templates_error/",
+            "notification_templates_started": "/api/v2/system_job_templates/2/notification_templates_started/",
+            "notification_templates_success": "/api/v2/system_job_templates/2/notification_templates_success/",
+            "schedules": "/api/v2/system_job_templates/2/schedules/"
+        },
+        "status": "ok",
+        "summary_fields": {},
+        "type": "system_job_template",
+        "url": "/api/v2/system_job_templates/2/"
+    },
+    {
+        "created": "2022-05-30T16:26:53.836243Z",
+        "description": "Cleanup expired OAuth 2 access and refresh tokens",
+        "id": 5,
+        "job_type": "cleanup_tokens",
+        "last_job_failed": false,
+        "last_job_run": null,
+        "modified": "2022-05-30T16:26:53.836243Z",
+        "name": "Cleanup Expired OAuth 2 Tokens",
+        "next_job_run": null,
+        "related": {
+            "jobs": "/api/v2/system_job_templates/5/jobs/",
+            "launch": "/api/v2/system_job_templates/5/launch/",
+            "notification_templates_error": "/api/v2/system_job_templates/5/notification_templates_error/",
+            "notification_templates_started": "/api/v2/system_job_templates/5/notification_templates_started/",
+            "notification_templates_success": "/api/v2/system_job_templates/5/notification_templates_success/",
+            "schedules": "/api/v2/system_job_templates/5/schedules/"
+        },
+        "status": "ok",
+        "summary_fields": {},
+        "type": "system_job_template",
+        "url": "/api/v2/system_job_templates/5/"
+    },
+    {
+        "created": "2022-05-30T16:26:53.733929Z",
+        "description": "Cleans out expired browser sessions",
+        "id": 4,
+        "job_type": "cleanup_sessions",
+        "last_job_failed": false,
+        "last_job_run": null,
+        "modified": "2022-05-30T16:26:53.733929Z",
+        "name": "Cleanup Expired Sessions",
+        "next_job_run": null,
+        "related": {
+            "jobs": "/api/v2/system_job_templates/4/jobs/",
+            "launch": "/api/v2/system_job_templates/4/launch/",
+            "notification_templates_error": "/api/v2/system_job_templates/4/notification_templates_error/",
+            "notification_templates_started": "/api/v2/system_job_templates/4/notification_templates_started/",
+            "notification_templates_success": "/api/v2/system_job_templates/4/notification_templates_success/",
+            "schedules": "/api/v2/system_job_templates/4/schedules/"
+        },
+        "status": "ok",
+        "summary_fields": {},
+        "type": "system_job_template",
+        "url": "/api/v2/system_job_templates/4/"
+    },
+    {
+        "created": "2022-05-30T16:25:58.469641Z",
+        "description": "Remove job history",
+        "id": 1,
+        "job_type": "cleanup_jobs",
+        "last_job_failed": false,
+        "last_job_run": null,
+        "modified": "2022-05-30T16:25:58.469641Z",
+        "name": "Cleanup Job Details",
+        "next_job_run": "2022-10-23T16:25:58Z",
+        "related": {
+            "jobs": "/api/v2/system_job_templates/1/jobs/",
+            "launch": "/api/v2/system_job_templates/1/launch/",
+            "next_schedule": "/api/v2/schedules/1/",
+            "notification_templates_error": "/api/v2/system_job_templates/1/notification_templates_error/",
+            "notification_templates_started": "/api/v2/system_job_templates/1/notification_templates_started/",
+            "notification_templates_success": "/api/v2/system_job_templates/1/notification_templates_success/",
+            "schedules": "/api/v2/system_job_templates/1/schedules/"
+        },
+        "status": "ok",
+        "summary_fields": {},
+        "type": "system_job_template",
+        "url": "/api/v2/system_job_templates/1/"
+    }
+]
