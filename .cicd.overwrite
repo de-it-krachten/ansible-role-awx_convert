@@ -8,6 +8,7 @@ generic:
     Convert AWX export into Configuration-as-Code, usable by the role 'awx_import'
   collections: []
 
+# Molecule
 molecule:
   requirements:
     roles_extra: []
@@ -17,3 +18,63 @@ molecule:
     vars:
       awx_export_path: /tmp/awx
       awx_config_path: /tmp/awx1
+
+# Supported platforms
+platforms:
+  rhel7:
+    ci: false
+    supported: false
+  rhel8:
+    ci: false
+    supported: true
+  rhel9:
+    ci: false
+    supported: true
+  centos7:
+    ci: false
+    supported: false
+  centos8:
+    ci: false
+    supported: false
+  rockylinux8:
+    ci: false
+    supported: true
+  rockylinux9:
+    ci: false
+    supported: true
+  oraclelinux8:
+    ci: true
+    supported: true
+    molecule:
+      docker:
+        image: "dropveter/olam:latest"
+  almalinux8:
+    ci: false
+    supported: true
+  almalinux9:
+    ci: false
+    supported: true
+  debian10:
+    ci: false
+    supported: false
+  debian11:
+    ci: false
+    supported: true
+  ubuntu1804:
+    ci: false
+    supported: false
+  ubuntu2004:
+    ci: false
+    supported: true
+  ubuntu2204:
+    ci: false
+    supported: true
+  fedora35:
+    ci: false
+    supported: false
+  fedora36:
+    ci: false
+    supported: true
+  alpine:
+    ci: false
+    supported: false
