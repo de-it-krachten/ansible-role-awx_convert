@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.1.0...v1.1.1) (2022-10-24)
+
+
+### Bug Fixes
+
+* credentials - change default behaviour not not update encrypted fields ([4eba0c0](https://github.com/de-it-krachten/ansible-role-awx_convert/commit/4eba0c021ab97171f6a5c3826e820d857ed15de8))
+
 # [1.1.0](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.0.0...v1.1.0) (2022-10-24)
 
 
