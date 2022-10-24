@@ -47,7 +47,7 @@
     content: >
       {{
         vars['__awx_' + awx_resource + '1'] |
-        to_nice_yaml |
+        to_nice_yaml(indent=2, width=160) |
         regex_replace('<< ', '{{ ') |
         regex_replace(' >>', ' }}')
       }}

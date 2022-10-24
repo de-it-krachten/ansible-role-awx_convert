@@ -1,0 +1,19 @@
+{
+    "AAP-550": {
+        "children": [
+            "AAP_DatabaseServers",
+            "AAP_Development",
+            "AAP_Productie",
+            "AAP_WebServers"
+        ],
+        "hosts": [
+            "swappams1112.basis-t.tst"
+        ],
+        "id": 550,
+        "inventory": {
+            "id": 29,
+            "name": "Automation"
+        },
+        "name": "AAP"
+    }
+}
