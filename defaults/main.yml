@@ -3,6 +3,9 @@
 # Host to execute code from
 awx_delegation_host: localhost
 
+# Should the hosts & groups be extracted from inventory (only for old exports)
+awx_extract_from_inventory: false
+
 # List of AWX resources to convert
 awx_convert_resources:
   - settings
