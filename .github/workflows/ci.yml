@@ -14,7 +14,7 @@ on:
 
 defaults:
   run:
-    working-directory: "de-it-krachten/ansible-role-awx_convert"
+    working-directory: "de-it-krachten/awx_convert"
 
 
 jobs:
@@ -50,7 +50,7 @@ jobs:
           path: "${{ github.repository }}"
 
       - name: Set up Python 3.
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -145,6 +145,17 @@ jobs:
             ansible: "ansible-core>2.13,<2.14"
             ansible_lint: "ansible-lint>6,<7"
 
+          - name: oraclelinux9_2.9
+            distro: oraclelinux9
+            playbook: converge.yml
+            ansible: "ansible==2.9.27"
+            ansible_lint: "ansible-lint==5.4.0"
+          - name: oraclelinux9_2.13
+            distro: oraclelinux9
+            playbook: converge.yml
+            ansible: "ansible-core>2.13,<2.14"
+            ansible_lint: "ansible-lint>6,<7"
+
 
     steps:
       - name: Check out the codebase.
@@ -153,7 +164,7 @@ jobs:
           path: "${{ github.repository }}"
 
       - name: Set up Python 3.
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 

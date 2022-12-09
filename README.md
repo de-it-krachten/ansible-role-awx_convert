@@ -1,4 +1,4 @@
-[![CI](https://github.com/de-it-krachten/ansible-role-awx_convert/workflows/CI/badge.svg?event=push)](https://github.com/de-it-krachten/ansible-role-awx_convert/actions?query=workflow%3ACI)
+[![CI](https://github.com/de-it-krachten/awx_convert/workflows/CI/badge.svg?event=push)](https://github.com/de-it-krachten/awx_convert/actions?query=workflow%3ACI)
 
 
 # ansible-role-awx_convert
@@ -25,6 +25,7 @@ Supported platforms
 - RockyLinux 8<sup>1</sup>
 - RockyLinux 9<sup>1</sup>
 - OracleLinux 8
+- OracleLinux 9
 - AlmaLinux 8<sup>1</sup>
 - AlmaLinux 9<sup>1</sup>
 - Debian 11 (Bullseye)<sup>1</sup>
@@ -40,6 +41,9 @@ Note:
 <pre><code>
 # Host to execute code from
 awx_delegation_host: localhost
+
+# Should the hosts & groups be extracted from inventory (only for old exports)
+awx_extract_from_inventory: false
 
 # List of AWX resources to convert
 awx_convert_resources:
@@ -90,7 +94,8 @@ awx_convert_vars:
 ## Example Playbook
 ### molecule/default/converge.yml
 <pre><code>
-- ansible.builtin.import_playbook: converge-pre.yml
+- name: sample playbook for role 'awx_convert' pre playbook
+  ansible.builtin.import_playbook: converge-pre.yml
 
 - name: sample playbook for role 'awx_convert'
   hosts: all
