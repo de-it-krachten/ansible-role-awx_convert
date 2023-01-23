@@ -10,6 +10,6 @@
     awx_export_path: /tmp/awx
     awx_config_path: /tmp/awx1
   tasks:
-    - name: Include role 'awx_convert'
+    - name: Include role 'ansible-role-awx_convert'
       ansible.builtin.include_role:
-        name: awx_convert
+        name: ansible-role-awx_convert

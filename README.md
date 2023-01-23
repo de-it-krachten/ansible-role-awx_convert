@@ -1,4 +1,4 @@
-[![CI](https://github.com/de-it-krachten/awx_convert/workflows/CI/badge.svg?event=push)](https://github.com/de-it-krachten/awx_convert/actions?query=workflow%3ACI)
+[![CI](https://github.com/de-it-krachten/ansible-role-awx_convert/workflows/CI/badge.svg?event=push)](https://github.com/de-it-krachten/ansible-role-awx_convert/actions?query=workflow%3ACI)
 
 
 # ansible-role-awx_convert
@@ -13,7 +13,6 @@ Convert AWX export into Configuration-as-Code, usable by the role 'awx_import'
 None
 
 #### Collections
-- community.general
 - community.general
 
 ## Platforms
@@ -31,7 +30,7 @@ Supported platforms
 - Debian 11 (Bullseye)<sup>1</sup>
 - Ubuntu 20.04 LTS<sup>1</sup>
 - Ubuntu 22.04 LTS<sup>1</sup>
-- Fedora 36<sup>1</sup>
+- Fedora 37<sup>1</sup>
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
