@@ -24,7 +24,7 @@ Supported platforms
 - RockyLinux 8<sup>1</sup>
 - RockyLinux 9<sup>1</sup>
 - OracleLinux 8
-- OracleLinux 9
+- OracleLinux 9<sup>1</sup>
 - AlmaLinux 8<sup>1</sup>
 - AlmaLinux 9<sup>1</sup>
 - Debian 11 (Bullseye)<sup>1</sup>

@@ -98,7 +98,7 @@
         mode: "0640"
       vars:
         extra_vars: "{{ varss.variables }}"
-      loop: "{{ __awx_groups_vars }}"
+      loop: "{{ __awx_groups_vars | default([]) }}"
       loop_control:
         loop_var: varss
         label:
