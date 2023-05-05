@@ -1,43 +1,109 @@
 ---
 
-- name: Import dict w/ groups vs children&hosts
-  ansible.builtin.set_fact:
-    groups_dict: >-
-      {{ lookup('file', awx_export_path + '/groups+children+hosts.json') | from_json }}
+- name: Retrieve groups from specific group export
+  when: not awx_extract_from_inventory | bool
+  block:
 
-- name: Convert groups
-  ansible.builtin.set_fact:
-    __awx_groups1: >
-      {{ __awx_groups1 | default([]) +
-        [{
-          'name': item.name,
-          'inventory': item.summary_fields.inventory.name,
-          'description': item.description,
-          'hosts': groups_dict[__name]['hosts'],
-          'children': groups_dict[__name]['children']
-        }]
-      }}
-  vars:
-    __name: "{{ item.name + '-' + item.id | string }}"
-  loop: "{{ __awx_groups }}"
-  loop_control:
-    label:
-      - "{{ item.name }}"
-  when: item.name is not search('-')
+    - name: Import dict w/ groups vs children&hosts
+      ansible.builtin.set_fact:
+        groups_dict: >-
+          {{ lookup('file', awx_export_path + '/groups+children+hosts.json') | from_json }}
 
-- name: Write groups/variables to file (JSON)
-  ansible.builtin.template:
-    src: extract2json.j2
-    dest: "{{ awx_config_path }}/groups/variables/{{ varss.name }}.json"
-    mode: "0640"
-  vars:
-    extra_vars: "{{ varss.variables }}"
-  loop: "{{ __awx_groups }}"
-  loop_control:
-    loop_var: varss
-    label:
-      - "{{ varss.name }}"
-  when:
-    - varss.variables | length > 0
-    - varss.variables != "---"
-    - varss.variables != "{}"
+    - name: Convert groups
+      ansible.builtin.set_fact:
+        __awx_groups1: >
+          {{ __awx_groups1 | default([]) +
+            [{
+              'name': item.name,
+              'inventory': item.summary_fields.inventory.name,
+              'description': item.description,
+              'hosts': groups_dict[__name]['hosts'],
+              'children': groups_dict[__name]['children']
+            }]
+          }}
+      vars:
+        __name: "{{ item.name + '-' + item.id | string }}"
+      loop: "{{ __awx_groups | default([]) }}"
+      loop_control:
+        label:
+          - "{{ item.name }}"
+      when: item.name is not search('-')
+
+    - name: Write groups/variables to file (JSON)
+      ansible.builtin.template:
+        src: extract2json.j2
+        dest: "{{ awx_config_path }}/groups/variables/{{ varss.name }}.json"
+        mode: "0640"
+      vars:
+        extra_vars: "{{ varss.variables }}"
+      loop: "{{ __awx_groups | default([]) }}"
+      loop_control:
+        loop_var: varss
+        label:
+          - "{{ varss.name }}"
+      when:
+        - varss.variables | length > 0
+        - varss.variables != "---"
+        - varss.variables != "{}"
+
+- name: Retrieve groups from inventory
+  when: awx_extract_from_inventory | bool
+  block:
+
+    - name: Import inventory file
+      ansible.builtin.set_fact:
+        inventory: >-
+          {{ lookup('file', awx_export_path + '/inventory.json') | from_json }}
+
+    - name: Loop over all inventories and get groups
+      ansible.builtin.set_fact:
+        __awx_groups1: >
+          [
+          {%- for inventory in inventory.assets.inventory -%}
+          {% set outer_loop = loop %}
+          {%- for group in inventory.related.groups -%}
+          {{
+            {
+              'name': group.name,
+              'inventory': inventory.name,
+              'description': group.description,
+              'hosts': (group.related.hosts | json_query('[].name')),
+              'children': (group.related.children | json_query('[].name'))
+            }
+          }}
+          {{ '' if (outer_loop.last and loop.last) else ',' }}
+          {%- endfor -%}
+          {%- endfor -%}
+          ]
+        __awx_groups_vars: >
+          [
+          {%- for inventory in inventory.assets.inventory -%}
+          {% set outer_loop = loop %}
+          {%- for group in inventory.related.groups -%}
+          {{
+            {
+              'name': group.name,
+              'variables': group.variables
+            }
+          }}
+          {{ '' if (outer_loop.last and loop.last) else ',' }}
+          {%- endfor -%}
+          {%- endfor -%}
+          ]
+
+    - name: Write groups/variables to file (JSON)
+      ansible.builtin.template:
+        src: extract2json.j2
+        dest: "{{ awx_config_path }}/groups/variables/{{ varss.name }}.json"
+        mode: "0640"
+      vars:
+        extra_vars: "{{ varss.variables }}"
+      loop: "{{ __awx_groups_vars | default([]) }}"
+      loop_control:
+        loop_var: varss
+        label:
+          - "{{ varss.name }}"
+      when:
+        - varss.variables | length > 0
+        - varss.variables != "---"
+        - varss.variables != "{}"

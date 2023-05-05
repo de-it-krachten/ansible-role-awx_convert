@@ -14,7 +14,6 @@ None
 
 #### Collections
 - community.general
-- community.general
 
 ## Platforms
 
@@ -25,12 +24,13 @@ Supported platforms
 - RockyLinux 8<sup>1</sup>
 - RockyLinux 9<sup>1</sup>
 - OracleLinux 8
+- OracleLinux 9<sup>1</sup>
 - AlmaLinux 8<sup>1</sup>
 - AlmaLinux 9<sup>1</sup>
 - Debian 11 (Bullseye)<sup>1</sup>
 - Ubuntu 20.04 LTS<sup>1</sup>
 - Ubuntu 22.04 LTS<sup>1</sup>
-- Fedora 36<sup>1</sup>
+- Fedora 37<sup>1</sup>
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -40,6 +40,9 @@ Note:
 <pre><code>
 # Host to execute code from
 awx_delegation_host: localhost
+
+# Should the hosts & groups be extracted from inventory (only for old exports)
+awx_extract_from_inventory: false
 
 # List of AWX resources to convert
 awx_convert_resources:
@@ -90,7 +93,9 @@ awx_convert_vars:
 ## Example Playbook
 ### molecule/default/converge.yml
 <pre><code>
-- ansible.builtin.import_playbook: converge-pre.yml
+- name: sample playbook for role 'awx_convert' pre playbook
+  ansible.builtin.import_playbook: converge-pre.yml
+  when: molecule_converge_pre is undefined or molecule_converge_pre | bool
 
 - name: sample playbook for role 'awx_convert'
   hosts: all
