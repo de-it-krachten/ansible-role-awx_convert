@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.1.1...v1.2.0) (2023-05-06)
+
+
+### Features
+
+* Add support for retrieving groups & hosts from inventory export ([592a189](https://github.com/de-it-krachten/ansible-role-awx_convert/commit/592a1894041495c1865cbf1683e9966b77d3b689))
+
 ## [1.1.1](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.1.0...v1.1.1) (2022-10-24)
 
 
