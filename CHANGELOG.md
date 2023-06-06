@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.2.0...v1.2.1) (2023-06-06)
+
+
+### Bug Fixes
+
+* Move resource 'organizations' to top ([5389137](https://github.com/de-it-krachten/ansible-role-awx_convert/commit/5389137e3bfb39471d5cfeb85928540a85914d12))
+
 # [1.2.0](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.1.1...v1.2.0) (2023-05-06)
 
 
