@@ -9,6 +9,7 @@ awx_extract_from_inventory: false
 # List of AWX resources to convert
 awx_convert_resources:
   - settings
+  - organizations
   - credential_types
   - credentials
   # - execution_environments
@@ -16,7 +17,6 @@ awx_convert_resources:
   - inventory_sources
   - job_templates
   - notification_templates
-  - organizations
   - projects
   - teams
   - users
