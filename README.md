@@ -27,10 +27,14 @@ Supported platforms
 - OracleLinux 9<sup>1</sup>
 - AlmaLinux 8<sup>1</sup>
 - AlmaLinux 9<sup>1</sup>
+- SUSE Linux Enterprise 15<sup>1</sup>
+- openSUSE Leap 15
 - Debian 11 (Bullseye)<sup>1</sup>
+- Debian 12 (Bookworm)
 - Ubuntu 20.04 LTS<sup>1</sup>
 - Ubuntu 22.04 LTS<sup>1</sup>
-- Fedora 37<sup>1</sup>
+- Fedora 37
+- Fedora 38<sup>1</sup>
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -47,6 +51,7 @@ awx_extract_from_inventory: false
 # List of AWX resources to convert
 awx_convert_resources:
   - settings
+  - organizations
   - credential_types
   - credentials
   # - execution_environments
@@ -54,7 +59,6 @@ awx_convert_resources:
   - inventory_sources
   - job_templates
   - notification_templates
-  - organizations
   - projects
   - teams
   - users
