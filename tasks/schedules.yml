@@ -25,8 +25,7 @@
   loop: "{{ __awx_schedules }}"
   loop_control:
     loop_var: varss
-    label:
-      - "{{ varss.name }}"
+    label: "{{ varss.name }}"
   when:
     - varss.extra_data | length > 0
     - varss.extra_data != "---"

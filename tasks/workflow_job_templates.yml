@@ -23,8 +23,7 @@
       }}
   loop: "{{ __awx_workflow_job_templates }}"
   loop_control:
-    label:
-      - "{{ item.name }}"
+    label: "{{ item.name }}"
 
 - name: Write workflow_job_templates/extra_vars to file (JSON)
   ansible.builtin.template:
@@ -36,8 +35,7 @@
   loop: "{{ __awx_workflow_job_templates }}"
   loop_control:
     loop_var: varss
-    label:
-      - "{{ varss.name }}"
+    label: "{{ varss.name }}"
   when:
     - varss.extra_vars | length > 0
     - varss.extra_vars != "---"

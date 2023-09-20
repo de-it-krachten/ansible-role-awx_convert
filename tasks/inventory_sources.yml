@@ -30,8 +30,7 @@
       }}
   loop: "{{ __awx_inventory_sources }}"
   loop_control:
-    label:
-      - "{{ item.name }}"
+    label: "{{ item.name }}"
 
 - name: Write inventory_sources/source_vars to file (JSON)
   ansible.builtin.template:
@@ -43,8 +42,7 @@
   loop: "{{ __awx_inventory_sources }}"
   loop_control:
     loop_var: varss
-    label:
-      - "{{ varss.name }}"
+    label: "{{ varss.name }}"
   when:
     - varss.source_vars | length > 0
     - varss.source_vars != "---"

@@ -10,7 +10,7 @@
           'organization': (item.organization.name if item.organization.name is defined else None),
           'allow_override': item.allow_override,
           'credential': (item.credential.name if item.credential.name is defined else None),
-          'custom_virtualenv': item.custom_virtualenv,
+          'custom_virtualenv': (item.custom_virtualenv if item.custom_virtualenv is defined else None),
           'scm_branch': item.scm_branch,
           'scm_clean': item.scm_clean,
           'scm_delete_on_update': item.scm_delete_on_update,
@@ -25,5 +25,4 @@
       }}
   loop: "{{ __awx_projects }}"
   loop_control:
-    label:
-      - "{{ item.name }}"
+    label: "{{ item.name }}"

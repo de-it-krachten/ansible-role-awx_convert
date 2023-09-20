@@ -16,5 +16,4 @@
       }}
   loop: "{{ __awx_users }}"
   loop_control:
-    label:
-      - "{{ item.username }}"
+    label: "{{ item.username }}"

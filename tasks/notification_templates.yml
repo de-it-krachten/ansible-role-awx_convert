@@ -9,5 +9,4 @@
       }}
   loop: "{{ __awx_notification_templates }}"
   loop_control:
-    label:
-      - "{{ item.name }}"
+    label: "{{ item.name }}"
