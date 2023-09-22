@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.3.0...v1.3.1) (2023-09-22)
+
+
+### Bug Fixes
+
+* Change loop/label for latest ansible ([ab4a700](https://github.com/de-it-krachten/ansible-role-awx_convert/commit/ab4a700d43070891afe0b9e48e1807f53103945b))
+
 # [1.3.0](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.2.1...v1.3.0) (2023-08-14)
 
 
