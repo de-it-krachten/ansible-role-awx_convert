@@ -25,8 +25,7 @@
         __name: "{{ item.name + '-' + item.id | string }}"
       loop: "{{ __awx_groups | default([]) }}"
       loop_control:
-        label:
-          - "{{ item.name }}"
+        label: "{{ item.name }}"
       when: item.name is not search('-')
 
     - name: Write groups/variables to file (JSON)
@@ -39,8 +38,7 @@
       loop: "{{ __awx_groups | default([]) }}"
       loop_control:
         loop_var: varss
-        label:
-          - "{{ varss.name }}"
+        label: "{{ varss.name }}"
       when:
         - varss.variables | length > 0
         - varss.variables != "---"
@@ -101,8 +99,7 @@
       loop: "{{ __awx_groups_vars | default([]) }}"
       loop_control:
         loop_var: varss
-        label:
-          - "{{ varss.name }}"
+        label: "{{ varss.name }}"
       when:
         - varss.variables | length > 0
         - varss.variables != "---"

@@ -22,7 +22,7 @@
           'ask_verbosity_on_launch': item.ask_verbosity_on_launch,
           'become_enabled': item.become_enabled,
           'credentials': (item.related.credentials | json_query('[].name') if item.related.credentials is defined else None),
-          'custom_virtualenv': item.custom_virtualenv,
+          'custom_virtualenv': (item.custom_virtualenv if item.custom_virtualenv is defined else None),
           'description': item.description,
           'diff_mode': item.diff_mode,
           'force_handlers': item.force_handlers,
@@ -48,8 +48,7 @@
       }}
   loop: "{{ __awx_job_templates }}"
   loop_control:
-    label:
-      - "{{ item.name }}"
+    label: "{{ item.name }}"
 
 - name: Write job_templates/extra_vars to file (JSON)
   ansible.builtin.template:
@@ -61,8 +60,7 @@
   loop: "{{ __awx_job_templates }}"
   loop_control:
     loop_var: varss
-    label:
-      - "{{ varss.name }}"
+    label: "{{ varss.name }}"
   when:
     - varss.extra_vars | length > 0
     - varss.extra_vars != "---"

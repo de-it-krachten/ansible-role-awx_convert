@@ -12,5 +12,4 @@
       }}
   loop: "{{ __awx_teams }}"
   loop_control:
-    label:
-      - "{{ item.name }}"
+    label: "{{ item.name }}"

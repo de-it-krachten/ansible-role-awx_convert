@@ -13,5 +13,4 @@
       }}
   loop: "{{ __awx_organizations }}"
   loop_control:
-    label:
-      - "{{ item.name }}"
+    label: "{{ item.name }}"
