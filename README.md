@@ -13,7 +13,7 @@ Convert AWX export into Configuration-as-Code, usable by the role 'awx_import'
 None
 
 #### Collections
-- community.general
+- 
 
 ## Platforms
 
@@ -97,10 +97,9 @@ awx_convert_vars:
 - name: sample playbook for role 'awx_convert' pre playbook
   ansible.builtin.import_playbook: converge-pre.yml
   when: molecule_converge_pre is undefined or molecule_converge_pre | bool
-
 - name: sample playbook for role 'awx_convert'
   hosts: all
-  become: "no"
+  become: 'no'
   vars:
     awx_export_path: /tmp/awx
     awx_config_path: /tmp/awx1
