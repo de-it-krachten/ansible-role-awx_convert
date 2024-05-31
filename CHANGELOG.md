@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.3.1...v1.4.0) (2024-05-31)
+
+
+### Features
+
+* Add support for Ubuntu 24.04 LTS + Fedora 40 ([e55086c](https://github.com/de-it-krachten/ansible-role-awx_convert/commit/e55086c65c1dddc1545475ac1edcfdc6a01eb987))
+
 ## [1.3.1](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.3.0...v1.3.1) (2023-09-22)
 
 
