@@ -13,7 +13,7 @@ Convert AWX export into Configuration-as-Code, usable by the role 'awx_import'
 None
 
 #### Collections
-- 
+None
 
 ## Platforms
 
@@ -31,7 +31,8 @@ Supported platforms
 - Debian 12 (Bookworm)<sup>1</sup>
 - Ubuntu 20.04 LTS<sup>1</sup>
 - Ubuntu 22.04 LTS<sup>1</sup>
-- Fedora 38<sup>1</sup>
+- Ubuntu 24.04 LTS
+- Fedora 40<sup>1</sup>
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
