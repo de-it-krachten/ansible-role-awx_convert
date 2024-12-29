@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.4.0...v1.5.0) (2024-12-29)
+
+
+### Features
+
+* Update supported platforms & CI ([3e99836](https://github.com/de-it-krachten/ansible-role-awx_convert/commit/3e998367c8e75df4c2004710c03c164cfe55f029))
+
 # [1.4.0](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.3.1...v1.4.0) (2024-05-31)
 
 
