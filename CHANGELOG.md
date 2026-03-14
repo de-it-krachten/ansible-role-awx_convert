@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.6.0...v1.7.0) (2026-03-14)
+
+
+### Features
+
+* Added support for Fedora 43 ([2020ae1](https://github.com/de-it-krachten/ansible-role-awx_convert/commit/2020ae1c4c3e7e42e4dfbd724b3b6b707f4c3248))
+
 # [1.6.0](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.5.0...v1.6.0) (2025-08-06)
 
 
