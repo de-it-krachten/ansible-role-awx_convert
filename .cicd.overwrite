@@ -8,6 +8,45 @@ generic:
     Convert AWX export into Configuration-as-Code, usable by the role 'awx_import'
   collections: []
 
+# Supported platforms
+platforms:
+  rockylinux8:
+    supported: true
+    ci: false
+  rockylinux9:
+    supported: true
+    ci: false
+  oraclelinux9:
+    supported: true
+    ci: false
+  almalinux8:
+    supported: true
+    ci: false
+  almalinux9:
+    supported: true
+    ci: false
+  debian11:
+    supported: true
+    ci: false
+  debian12:
+    supported: true
+    ci: false
+  ubuntu2004:
+    supported: true
+    ci: false
+  ubuntu2204:
+    supported: true
+    ci: false
+  ubuntu2404:
+    supported: true
+    ci: false
+  fedora42:
+    supported: true
+    ci: false
+  fedora43:
+    supported: true
+    ci: false
+
 # Molecule
 molecule:
   requirements:
@@ -19,77 +58,3 @@ molecule:
       awx_export_path: /tmp/awx
       awx_config_path: /tmp/awx1
 
-# Supported platforms
-platforms:
-  rhel7:
-    ci: false
-    supported: false
-  rhel8:
-    ci: false
-    supported: true
-  rhel9:
-    ci: false
-    supported: true
-  centos7:
-    ci: false
-    supported: false
-  centos8:
-    ci: false
-    supported: false
-  rockylinux8:
-    ci: false
-    supported: true
-  rockylinux9:
-    ci: false
-    supported: true
-  oraclelinux8:
-    ci: true
-    supported: true
-    molecule:
-      docker:
-        image: "dropveter/olam:latest"
-  oraclelinux9:
-    ci: false
-    supported: true
-  almalinux8:
-    ci: false
-    supported: true
-  almalinux9:
-    ci: false
-    supported: true
-  opensuse15:
-    ci: false
-    supported: false
-  sles15:
-    ci: false
-    supported: false
-  debian10:
-    ci: false
-    supported: false
-  debian11:
-    ci: false
-    supported: true
-  debian12:
-    ci: false
-    supported: true
-  ubuntu1804:
-    ci: false
-    supported: false
-  ubuntu2004:
-    ci: false
-    supported: true
-  ubuntu2204:
-    ci: false
-    supported: true
-  ubuntu2404:
-    ci: false
-    supported: true
-  fedora41:
-    ci: false
-    supported: false
-  fedora42:
-    ci: false
-    supported: true
-  alpine:
-    ci: false
-    supported: false

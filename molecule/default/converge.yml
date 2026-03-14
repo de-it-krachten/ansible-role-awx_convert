@@ -8,6 +8,7 @@
   hosts: all
   become: "no"
   vars:
+    molecule_driver: "{{ lookup('env', 'MOLECULE_DRIVER_NAME') }}"
     awx_export_path: /tmp/awx
     awx_config_path: /tmp/awx1
   tasks:
