@@ -10,10 +10,10 @@ Convert AWX export into Configuration-as-Code, usable by the role 'awx_import'
 ## Dependencies
 
 #### Roles
-None
+- deitkrachten.awx_cli
 
 #### Collections
-None
+- awx.awx
 
 ## Platforms
 
@@ -37,8 +37,9 @@ Supported platforms
 - Ubuntu 20.04 LTS<sup>1</sup>
 - Ubuntu 22.04 LTS<sup>1</sup>
 - Ubuntu 24.04 LTS<sup>1</sup>
-- Fedora 42<sup>1</sup>
+- Ubuntu 26.04 LTS<sup>1</sup>
 - Fedora 43<sup>1</sup>
+- Fedora 44<sup>1</sup>
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
