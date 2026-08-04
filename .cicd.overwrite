@@ -68,9 +68,9 @@ platforms:
     supported: true
     ci: false
 
-# Dependencies 
+# Dependencies
 dependencies:
-  roles: 
+  roles:
     - deitkrachten.awx_cli
   collections:
     - awx.awx
