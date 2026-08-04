@@ -1,3 +1,12 @@
+# [1.8.0](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.7.0...v1.8.0) (2026-08-04)
+
+
+### Features
+
+* Added support for Fedora 44 ([71c8ad9](https://github.com/de-it-krachten/ansible-role-awx_convert/commit/71c8ad9023fd942d0be06bcfc23f7d0bba9fe9f3))
+* Added support for Ubuntu 26.04 LTS ([4030587](https://github.com/de-it-krachten/ansible-role-awx_convert/commit/4030587ce921c560478996b7b68e21eded479d9c))
+* Drop support for Fedora 42 ([d0cdd37](https://github.com/de-it-krachten/ansible-role-awx_convert/commit/d0cdd372e07d7ef9878df47972f0b7f863fa00ab))
+
 # [1.7.0](https://github.com/de-it-krachten/ansible-role-awx_convert/compare/v1.6.0...v1.7.0) (2026-03-14)
 
 
